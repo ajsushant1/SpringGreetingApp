@@ -12,8 +12,6 @@ import java.util.concurrent.atomic.AtomicLong;
 @RequestMapping("/greetingcontroller")
 public class GreetingController {
 
-
-    private String template = "Hello %s";
     private final AtomicLong counter = new AtomicLong();
 
     @Autowired
@@ -21,22 +19,22 @@ public class GreetingController {
 
     @RequestMapping("/home")
     public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
-        return new Greeting(counter.incrementAndGet(), String.format(template, name));
+        return new Greeting(counter.incrementAndGet(), greetingService.getGreeting(name));
     }
 
-    @GetMapping("/greeting/{name}")
-    public Greeting greetingGet(@PathVariable String name) {
-        return new Greeting(counter.incrementAndGet(), String.format(template, name));
+    @GetMapping("/greeting/{firstName}/{lastName}")
+    public Greeting greetingGet(@PathVariable String firstName, @PathVariable String lastName) {
+        return new Greeting(counter.incrementAndGet(), greetingService.getGreeting(firstName, lastName));
     }
 
     @PostMapping("/post")
     public Greeting greetingPost(@RequestBody User user) {
-        return new Greeting(counter.incrementAndGet(), String.format(template, user.getName()));
+        return new Greeting(counter.incrementAndGet(), greetingService.getGreeting(user.getFirstName(), user.getLastName()));
     }
 
-    @PutMapping("/put")
-    public Greeting greetingPut(@RequestParam(value = "name") String name) {
-        return new Greeting(counter.incrementAndGet(), String.format(template, name));
+    @PutMapping("/put/{firstName}")
+    public Greeting greetingPut(@PathVariable String firstName, @RequestParam(value = "lastName") String lastName) {
+        return new Greeting(counter.incrementAndGet(), greetingService.getGreeting(firstName, lastName));
     }
 
     @RequestMapping("/greeting")
