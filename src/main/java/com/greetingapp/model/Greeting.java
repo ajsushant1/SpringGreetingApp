@@ -1,20 +1,36 @@
 package com.greetingapp.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table
 public class Greeting {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+    private String message;
 
-    private final long counter;
-    private final String message;
-
-    public Greeting(long counter, String message) {
-        this.counter = counter;
+    public Greeting(long id, String message) {
+        this.id = id;
         this.message = message;
     }
 
-    public long getCounter() {
-        return counter;
+    public Greeting() {
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getMessage() {
         return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

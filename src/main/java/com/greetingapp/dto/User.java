@@ -1,4 +1,4 @@
-package com.greetingapp.model;
+package com.greetingapp.dto;
 
 public class User {
     private String firstName;
