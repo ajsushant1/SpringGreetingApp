@@ -19,6 +19,7 @@ public class GreetingServiceImpl implements GreetingService {
 
     ModelMapper modelMapper = new ModelMapper();
 
+    //METHOD TO ADD GREETING IN REPOSITORY
     @Override
     public Greeting addGreeting(User user) {
         String message = (user.getFirstName().isEmpty() && user.getLastName().isEmpty()) ? String.format(template, "World") :
@@ -30,21 +31,25 @@ public class GreetingServiceImpl implements GreetingService {
         return repository.save(map);
     }
 
+    //METHOD TO GET GREETING FROM REPOSITORY
     @Override
     public Greeting getGreeting(long id) {
         return repository.findById(id).get();
     }
 
+    //METHOD TO DELETE GREETING FROM REPOSITORY
     @Override
     public void deleteGreeting(long id) {
         repository.deleteById(id);
     }
 
+    //METHOD TO GET ALL GREETING FROM REPOSITORY
     @Override
     public List<Greeting> getALlGreeting() {
         return repository.findAll();
     }
 
+    //METHOD TO UPDATE GREETING
     @Override
     public Greeting updateGreeting(long id, String message) {
         Greeting greeting = repository.findById(id).get();
