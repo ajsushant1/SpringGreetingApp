@@ -1,8 +1,8 @@
 package com.greetingapp.service;
 
 import com.greetingapp.dto.GreetingDTO;
-import com.greetingapp.model.Greeting;
 import com.greetingapp.dto.User;
+import com.greetingapp.model.Greeting;
 import com.greetingapp.repository.GreetingRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

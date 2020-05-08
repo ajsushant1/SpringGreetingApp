@@ -1,7 +1,7 @@
 package com.greetingapp.controller;
 
-import com.greetingapp.model.Greeting;
 import com.greetingapp.dto.User;
+import com.greetingapp.model.Greeting;
 import com.greetingapp.service.GreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -30,7 +30,7 @@ public class GreetingController {
 
     @PutMapping("/updateGreeting/{id}")
     public Greeting greetingPut(@PathVariable long id, @RequestParam(value = "message") String message) {
-        return greetingService.updateGreeting(id,message);
+        return greetingService.updateGreeting(id, message);
     }
 
     @RequestMapping("/allgreetings")
@@ -39,7 +39,7 @@ public class GreetingController {
     }
 
     @RequestMapping("/deleteGreeting/{id}")
-    public void deleteGreeting(@PathVariable long id){
+    public void deleteGreeting(@PathVariable long id) {
         greetingService.deleteGreeting(id);
     }
 }

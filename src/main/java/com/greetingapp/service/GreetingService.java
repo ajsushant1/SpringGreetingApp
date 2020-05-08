@@ -1,7 +1,7 @@
 package com.greetingapp.service;
 
-import com.greetingapp.model.Greeting;
 import com.greetingapp.dto.User;
+import com.greetingapp.model.Greeting;
 
 import java.util.List;
 

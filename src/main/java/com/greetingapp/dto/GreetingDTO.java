@@ -4,7 +4,7 @@ public class GreetingDTO {
 
     private String message;
 
-    public GreetingDTO( String message) {
+    public GreetingDTO(String message) {
 
         this.message = message;
     }
